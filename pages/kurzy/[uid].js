@@ -2,12 +2,16 @@ import { getAllCourseUid, getCourse } from '../../lib/api';
 import { RichText } from 'prismic-reactjs';
 
 export default function ({ course, timeslots }) {
-  return (
-    <div className="prose">
-      <RichText render={course.title} />
-      <pre>{JSON.stringify(timeslots, null, '  ')}</pre>
-    </div>
-  );
+  if (course && timeslots) {
+    return (
+      <div className="prose">
+        <RichText render={course.title} />
+        <pre>{JSON.stringify(timeslots, null, '  ')}</pre>
+      </div>
+    );
+  } else {
+    return <div>What course?</div>;
+  }
 }
 
 export async function getStaticPaths() {
