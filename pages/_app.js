@@ -1,7 +1,21 @@
-import '../styles/index.css'
+import '../styles/index.css';
+import React from 'react';
+import { getNavigationBarData } from '../lib/api';
+import { Layout } from '../components';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps, navigationBarData }) {
+  return (
+    <Layout navigationBarData={navigationBarData}>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 
-export default MyApp
+MyApp.getInitialProps = async context => {
+  console.log('_app init props called');
+  //console.log(context);
+  const navigationBarData = await getNavigationBarData();
+  return { navigationBarData };
+};
+
+export default MyApp;

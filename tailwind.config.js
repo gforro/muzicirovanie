@@ -1,32 +1,56 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+//console.log(JSON.stringify(defaultTheme.fontSize.xl, null, ' '));
+
 module.exports = {
+  purge: {mode: 'all', content: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}']},
   theme: {
     extend: {
-      colors: {
-        'accent-1': '#FAFAFA',
-        'accent-2': '#EAEAEA',
-        'accent-7': '#333',
-        success: '#0070f3',
-        cyan: '#79FFE1',
-      },
-      spacing: {
-        28: '7rem',
-      },
-      letterSpacing: {
-        tighter: '-.04em',
-      },
-      lineHeight: {
-        tight: 1.2,
-      },
       fontSize: {
-        '5xl': '2.5rem',
-        '6xl': '2.75rem',
-        '7xl': '4.5rem',
-        '8xl': '6.25rem',
+        huge: '10rem',
+        big: '8rem',
       },
-      boxShadow: {
-        small: '0 5px 10px rgba(0, 0, 0, 0.12)',
-        medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
+      fontFamily: {
+        sans2: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+        serif: ['Alegreya', ...defaultTheme.fontFamily.serif],
+      },
+      colors: {
+        neutral: {
+          50: '#F7F7F7',
+          100: '#E1E1E1',
+          200: '#CFCFCF',
+          300: '#B1B1B1',
+          400: '#9E9E9E',
+          500: '#7E7E7E',
+          600: '#626262',
+          700: '#515151',
+          800: '#3B3B3B',
+          900: '#222222',
+        },
+        primary: {
+          50: '#FFFBEA',
+          100: '#FFF3C4',
+          200: '#FCE588',
+          300: '#FADB5F',
+          400: '#F7C948',
+          500: '#F0B429',
+          600: '#DE911D',
+          700: '#CB6E17',
+          800: '#B44D12',
+          900: '#8D2B0B',
+        },
+      },
+      height: {
+        hero: `calc(100vh - 80px)`,
+        header: '80px',
+        px: '1px',
+      },
+      minHeight: {
+        hero: '500px',
+        header: '80px',
       },
     },
   },
-}
+  variants: {},
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/ui')],
+};
