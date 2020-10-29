@@ -6,7 +6,6 @@ export const Hero = ({
   className,
   heroData: { primaryText, secondaryText, image, buttonText, buttonLink },
 }) => {
-  console.log(buttonLink);
   return (
     <section
       className={`text-neutral-700 bg-primary-100 flex p-5 pb-20 ${className}`}>
@@ -26,7 +25,7 @@ export const Hero = ({
           <p className="mb-8 leading-relaxed text-neutral-600 font-serif md:text-2xl">
             {secondaryText}
           </p>
-          <Link as={linkResolver(buttonLink)} href={hrefResolver(buttonLink)}>
+          <Link href={linkResolver(buttonLink)}>
             <a className="text-white bg-primary-900 border-0 py-2 px-6 focus:outline-none hover:bg-primary-700  rounded text-lg tracking-wide">
               {buttonText}
             </a>

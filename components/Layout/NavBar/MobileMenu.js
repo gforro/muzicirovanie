@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
-import { hrefResolver, linkResolver } from '../../../lib/prismicHelpers';
+import { linkResolver } from '../../../lib/prismicHelpers';
 import { ActiveLink } from '../../ActiveLink';
 
 export const MobileMenu = ({ menuItems }) => {
@@ -10,8 +10,7 @@ export const MobileMenu = ({ menuItems }) => {
       <div className="pt-2 pb-3">
         {menuItems.map(({ label, link }, i) => (
           <ActiveLink
-            href={hrefResolver(link)}
-            as={linkResolver(link)}
+            href={linkResolver(link)}
             activeClassName={cn(
               'border-primary-700 text-primary-700 bg-primary-50',
               'hover:border-primary-700 hover:text-primary-700 hover:bg-primary-50',
@@ -80,7 +79,7 @@ export const MobileMenu = ({ menuItems }) => {
             </a>
           </Link>
           <Link href="/admin/odhlasit">
-            <a className="block px-4 py-2 text-sm leading-5 text-neutral-700 hover:bg-neutral-100 focus:outline-none focus:bg-neutral-100 transition duration-150 ease-in-out">
+            <a className="block px-4 py-2 leading-5 text-neutral-500 hover:bg-neutral-100 focus:outline-none focus:bg-neutral-100 transition duration-150 ease-in-out">
               Odhlásiť sa
             </a>
           </Link>

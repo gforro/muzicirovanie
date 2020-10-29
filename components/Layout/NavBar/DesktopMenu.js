@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { hrefResolver, linkResolver } from '../../../lib/prismicHelpers';
+import { linkResolver } from '../../../lib/prismicHelpers';
 import { ActiveLink } from '../../ActiveLink';
 
 export const DesktopMenu = ({ menuItems }) => {
@@ -8,8 +8,7 @@ export const DesktopMenu = ({ menuItems }) => {
     <div className="hidden sm:-my-px sm:ml-8 sm:flex">
       {menuItems.map(({ label, link }, i) => (
         <ActiveLink
-          as={linkResolver(link)}
-          href={hrefResolver(link)}
+          href={linkResolver(link)}
           activeClassName={cn(
             'border-primary-700 text-neutral-900',
             'hover:border-primary-700 hover:text-neutral-900',

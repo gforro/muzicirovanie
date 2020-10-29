@@ -10,19 +10,19 @@ export default function ({ numberText }) {
     return (
       <>
         <div className="flex justify-center">
-          <Link as="/test-fallback/1" href="/test-fallback/[id]">
+          <Link href="/test-fallback/1">
             <a className="p-4">1</a>
           </Link>
-          <Link as="/test-fallback/2" href="/test-fallback/[id]">
+          <Link href="/test-fallback/2">
             <a className="p-4">2</a>
           </Link>
-          <Link as="/test-fallback/3" href="/test-fallback/[id]">
+          <Link href="/test-fallback/3">
             <a className="p-4">3</a>
           </Link>
-          <Link as="/test-fallback/4" href="/test-fallback/[id]">
+          <Link href="/test-fallback/4">
             <a className="p-4">4</a>
           </Link>
-          <Link as="/test-fallback/7" href="/test-fallback/[id]">
+          <Link href="/test-fallback/5">
             <a className="p-4">5</a>
           </Link>
         </div>

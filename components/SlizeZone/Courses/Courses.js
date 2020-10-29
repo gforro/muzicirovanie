@@ -33,12 +33,12 @@ export const Courses = ({ slice: { primary, fields } }) => {
             <h2 className="mt-2 text-black text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10">
               {RichText.asText(course.title)}
             </h2>
-            <p className="mt-3 text-lg leading-7 text-neutral-700 prose">
-              <RichText render={course.description} />
-            </p>
+            <div className="mt-3 text-lg leading-7 text-neutral-700 prose">
+              <RichText render={course.short_description} />
+            </div>
             <div className="mt-8">
               <div className="inline-flex rounded-md shadow">
-                <Link href={hrefResolver(course)} as={linkResolver(course)}>
+                <Link href={linkResolver(course)}>
                   <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-neutral-100 bg-primary-900 hover:text-neutral-300 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
                     Viac o kurze
                   </a>

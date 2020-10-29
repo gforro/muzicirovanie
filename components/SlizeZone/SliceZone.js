@@ -5,7 +5,6 @@ import { Hero } from './Hero';
 
 export const SliceZone = ({ body }) => {
   return body.map((bodyContent, i) => {
-    console.log(`body content is ${bodyContent}`);
     switch (bodyContent.type) {
       case 'courses':
         return <Courses slice={bodyContent} key={i} />;

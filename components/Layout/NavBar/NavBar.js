@@ -5,11 +5,12 @@ import { DesktopMenu } from './DesktopMenu';
 import { Transition } from '../../utils/Transition';
 import { AdminDropdownPanel } from './AdminDropdownPanel';
 import { MobileMenu } from './MobileMenu';
+import { useUser } from '../../../lib/context/UserContext';
 
 export const NavBar = ({ navigationBarData: { title, logo, menuItems } }) => {
   const [showAdminPanel, setShowAdminPanel] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const auth = false; //TODO manage logged in user
+  const { user, logout } = useUser();
 
   return (
     <nav className="bg-primary-100 border-b border-neutral-200">
@@ -28,11 +29,11 @@ export const NavBar = ({ navigationBarData: { title, logo, menuItems } }) => {
                 </h1>
               </div>
             </Link>
-            {auth && <DesktopMenu menuItems={menuItems} />}
+            {user && <DesktopMenu menuItems={menuItems} />}
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:justify-end sm:items-stretch">
+          <div className="hidden sm:ml-6 sm:flex sm:justify-end sm:items-center">
             {/* Admin menu dropdown */}
-            {auth ? (
+            {user ? (
               <div className="ml-3 relative">
                 <div>
                   <button
@@ -57,7 +58,7 @@ export const NavBar = ({ navigationBarData: { title, logo, menuItems } }) => {
                   leave="transition ease-in duration-75"
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95">
-                  <AdminDropdownPanel />
+                  <AdminDropdownPanel logout={logout} />
                 </Transition>
               </div>
             ) : (
